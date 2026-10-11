@@ -18,6 +18,9 @@ export function App() {
   const generatorRef = useRef<HTMLDivElement>(null);
 
   const {
+    academicYears,
+    selectedYearId,
+    selectedTermId,
     subjects,
     selectedSubjectId,
     selectedModuleId,
@@ -27,6 +30,8 @@ export function App() {
     currentJournal,
     error,
     toastMessage,
+    selectYear,
+    selectTerm,
     selectSubject,
     selectModule,
     handleGenerate,
@@ -77,7 +82,7 @@ export function App() {
             Create Your Journal
           </h2>
           <p className="text-base text-slate-600">
-            Choose your subject and module. ReflectAI will handle the rest.
+            Choose your academic year, term, subject, and module. ReflectAI will handle the rest.
           </p>
         </div>
 
@@ -100,8 +105,13 @@ export function App() {
         {/* 2-STEP SELECTOR CONTAINER */}
         <div className="max-w-4xl mx-auto space-y-8 mb-8">
           
-          {/* STEP 1: SUBJECT SELECTOR */}
+          {/* STEP 1: SUBJECT SELECTOR WITH YEAR & TERM TABS */}
           <SubjectSelector
+            academicYears={academicYears}
+            selectedYearId={selectedYearId}
+            selectedTermId={selectedTermId}
+            onSelectYear={selectYear}
+            onSelectTerm={selectTerm}
             subjects={subjects}
             selectedSubjectId={selectedSubjectId}
             onSelectSubject={selectSubject}

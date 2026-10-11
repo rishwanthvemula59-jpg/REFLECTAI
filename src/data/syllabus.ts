@@ -1,327 +1,383 @@
-import type { Subject } from '../types/syllabus';
+import type { Subject, AcademicYear } from '../types/syllabus';
 
-export const SUBJECTS: Subject[] = [
+export const ACADEMIC_YEARS: AcademicYear[] = [
   {
-    id: 'prob-stats',
-    name: 'Probability Theory and Statistical Analysis',
-    code: 'MATH-301',
-    category: 'Mathematics & Statistics',
-    description: 'Fundamental mathematical principles for data analysis, probability models, hypothesis testing, and regression analysis.',
-    iconName: 'BarChart3',
-    modules: [
+    id: 'year-1',
+    name: '1st Year',
+    badge: 'Term 1 Available',
+    terms: [
       {
-        id: 'prob-stats-m1',
-        number: 'Module I',
-        name: 'Introduction to Statistics',
-        syllabusPreview: 'Frequency tables, histograms, ogives, stem-and-leaf, central tendency, variability, Chebyshev inequality, skewness, scatter plots.',
-        contentDetails: 'Introduction to statistics, representation of small datasets using frequency tables, histograms, ogives, stem and leaf plots, measures of central tendency, measures of variability, Chebyshev\'s inequality, normal datasets, skewness of data, and representation of two quantitative variables on a scatter plot.'
-      },
-      {
-        id: 'prob-stats-m2',
-        number: 'Module II',
-        name: 'Introduction to Probability',
-        syllabusPreview: 'Basics of probability, axioms, conditional probability, Bayes\' theorem, independent and dependent events.',
-        contentDetails: 'Basics of probability, axioms of probability, conditional probability, Bayes\' theorem, independent and dependent events.'
-      },
-      {
-        id: 'prob-stats-m3',
-        number: 'Module III',
-        name: 'Random Variables',
-        syllabusPreview: 'Random variables, probability distribution function, discrete mean and variance, numericals, probability density function.',
-        contentDetails: 'Random variables, types of random variables, probability distribution function, mean, variance, and standard deviation of discrete random variables, numericals on mean and variance, probability density function.'
-      },
-      {
-        id: 'prob-stats-m4',
-        number: 'Module IV',
-        name: 'Discrete Probability Distributions',
-        syllabusPreview: 'Binomial, Poisson, MGF, mean and variance of Binomial & Poisson, relationship between Binomial & Poisson.',
-        contentDetails: 'Binomial distribution, moment generating function, mean and variance of binomial distribution, Poisson distribution, mean and variance of Poisson distribution, relationship between binomial and Poisson distributions.'
-      },
-      {
-        id: 'prob-stats-m5',
-        number: 'Module V',
-        name: 'Continuous Probability Distributions',
-        syllabusPreview: 'Normal distribution, Z-table usage, uniform, gamma, exponential, and beta distributions.',
-        contentDetails: 'Normal distribution and its properties, use of normal distribution table, numericals on normal distribution, mean and variance of normal distribution, uniform, gamma, exponential, and beta distributions.'
-      },
-      {
-        id: 'prob-stats-m6',
-        number: 'Module VI',
-        name: 'Sampling & Estimation',
-        syllabusPreview: 'Sampling types, Central Limit Theorem, t-distribution, chi-squared, F-distribution, point & interval estimation.',
-        contentDetails: 'Introduction to sampling and types of sampling, sampling distributions, central limit theorem, t-distribution, chi-squared distribution, F-distribution, estimation, point and interval estimation.'
-      },
-      {
-        id: 'prob-stats-m7',
-        number: 'Module VII',
-        name: 'Testing of Hypothesis – I',
-        syllabusPreview: 'Null & alternate hypotheses, Type I & Type II errors, significance levels, hypothesis testing for mean.',
-        contentDetails: 'Testing of hypothesis, null and alternate hypotheses, type I and type II errors, level of significance, testing of hypothesis for mean.'
-      },
-      {
-        id: 'prob-stats-m8',
-        number: 'Module VIII',
-        name: 'Testing of Hypothesis – II',
-        syllabusPreview: 'Proportion hypothesis testing, numerical models for single and comparison proportions.',
-        contentDetails: 'Testing of hypothesis for all proportions, and numericals on all hypothesis testing models.'
-      },
-      {
-        id: 'prob-stats-m9',
-        number: 'Module IX',
-        name: 'Correlation',
-        syllabusPreview: 'Correlation and covariance, correlation types, coefficient of correlation, Spearman\'s rank correlation.',
-        contentDetails: 'Correlation and covariance, types of correlation, coefficient of correlation, Spearman\'s rank correlation and coefficient.'
-      },
-      {
-        id: 'prob-stats-m10',
-        number: 'Module X',
-        name: 'Regression',
-        syllabusPreview: 'Simple linear regression, multiple linear regression, nonlinear and polynomial regression models.',
-        contentDetails: 'Simple linear regression, multiple linear regression with more than two independent variables, nonlinear regression, polynomial regression.'
+        id: 'term-1',
+        name: 'Term 1',
+        yearId: 'year-1',
+        description: 'First semester foundation courses covering programming, core mathematics, applied engineering physics, and web fundamentals.',
+        isAvailable: true,
+        statusBadge: 'Active • 4 Courses',
+        subjects: [
+          {
+            id: 'python-prog',
+            name: 'Problem Solving With Python Programming-1',
+            code: 'CS-101',
+            category: 'Programming & Logic',
+            description: 'Fundamental programming principles with Python: syntax, conditionals, loop structures, collections, functions, recursion, and GUI modules.',
+            iconName: 'Code2',
+            yearId: 'year-1',
+            termId: 'term-1',
+            modules: [
+              {
+                id: 'python-m1',
+                number: 'Module-I',
+                name: 'Python Basics, Operators and Expressions',
+                syllabusPreview: 'Literal constants, variables, identifiers, data types, I/O operations, comments, reserved words, indentation, operators, and expression precedence.',
+                contentDetails: 'Python Basics: Literal Constants, Variables and Identifiers, Data Types, Input/Output Operations, Comments, Reserved Words, Indentation. Operators and Expressions: Arithmetic, Comparison, Assignment, Relational, Unary, Bitwise, Shift, Logical, Membership, Identity, Operator Precedence, and Associativity of Expressions.'
+              },
+              {
+                id: 'python-m2',
+                number: 'Module-II',
+                name: 'Selection & Conditional Branching Statements',
+                syllabusPreview: 'if, if-else, Nested if, if elif-else decision and branching statements.',
+                contentDetails: 'Selection/Conditional Branching Statements – if, if-else, Nested if, if elif-else statements.'
+              },
+              {
+                id: 'python-m3',
+                number: 'Module-III',
+                name: 'Loop Structures / Iterative Statements-1',
+                syllabusPreview: 'while and for loops with comprehensive programming walkthroughs and examples.',
+                contentDetails: 'Loop Structures/Iterative Statements-1: while, for loops with examples.'
+              },
+              {
+                id: 'python-m4',
+                number: 'Module-IV',
+                name: 'Loop Structures / Iterative Statements-2',
+                syllabusPreview: 'Nested loops, continue, break, and pass control statements.',
+                contentDetails: 'Loop Structures/Iterative Statements-2: Nested loops, continue, break, pass statements.'
+              },
+              {
+                id: 'python-m5',
+                number: 'Module-V',
+                name: 'Strings and its Operations',
+                syllabusPreview: 'Concatenating, appending, multiplying strings, built-in string methods, slice operation, iterating string, string module.',
+                contentDetails: 'Strings and its operations: Concatenating, Appending, Multiplying strings, Built-in String methods and functions, Slice Operation, Iterating String, String Module.'
+              },
+              {
+                id: 'python-m6',
+                number: 'Module-VI',
+                name: 'Lists and Nested Lists',
+                syllabusPreview: 'Creation of lists, indexing, slicing, updating lists, list methods, iterating lists, and nested lists.',
+                contentDetails: 'Lists: Creation of Lists, Indexing, Slicing, Updating Lists, List Methods, Iterating Lists, Nested Lists.'
+              },
+              {
+                id: 'python-m7',
+                number: 'Module-VII',
+                name: 'Tuples',
+                syllabusPreview: 'Creating tuples, accessing elements, tuple methods, and immutability characteristics.',
+                contentDetails: 'Tuples: Creating Tuples, Accessing Elements, Tuple Methods.'
+              },
+              {
+                id: 'python-m8',
+                number: 'Module-VIII',
+                name: 'Functions and Variable Scopes',
+                syllabusPreview: 'Declaration, definition, variable scope, lifetime of variables, return statements, argument types, lambda functions.',
+                contentDetails: 'Functions: Declaration, Definition, Variable Scope, Lifetime of Variables, Return Statements, Types of Arguments, Lambda function.'
+              },
+              {
+                id: 'python-m9',
+                number: 'Module-IX',
+                name: 'Recursion and Modules',
+                syllabusPreview: 'Recursive function mechanics, built-in Python modules, and user-defined module structuring.',
+                contentDetails: 'Recursion, Modules- Built-in Modules, User-defined Modules.'
+              },
+              {
+                id: 'python-m10',
+                number: 'Module-X',
+                name: 'Modules, Libraries and Simple GUI Applications',
+                syllabusPreview: 'Labels, buttons, entry, text, frame, menu, simple GUI applications, basic packages and libraries.',
+                contentDetails: 'Modules and Libraries: Labels, Buttons, Entry, Text, Frame, Menu, Simple GUI Applications, Basic Packages and Libraries.'
+              }
+            ]
+          },
+          {
+            id: 'math-cs',
+            name: 'Mathematics for Computer Science',
+            code: 'MATH-101',
+            category: 'Discrete Mathematics & Logic',
+            description: 'Core mathematical principles: number systems, IEEE-754 representation, modular arithmetic, proofs, matrices, combinatorics, sequences, sets, relations, and recurrence relations.',
+            iconName: 'BarChart3',
+            yearId: 'year-1',
+            termId: 'term-1',
+            modules: [
+              {
+                id: 'math-m1',
+                number: 'MODULE I',
+                name: 'Number Systems and Bitwise Operators',
+                syllabusPreview: 'Binary, decimal, octal, hexadecimal conversions, arithmetic, bitwise operators, shift operations, optimization techniques.',
+                contentDetails: 'Types of Number Systems: Binary, Decimal, Octal, Hexadecimal – Conversions between Number Systems, Basic Arithmetic operations in Decimal, Binary, Octal, Hexadecimal, Bitwise Operators: AND, OR, NOT, XOR, NAND, NOR, Shift Operations – Applications of Bitwise Operators in Optimization (Checking if a number is even or odd, Swapping two numbers without temporary storage, Counting the number of set bits in a number).'
+              },
+              {
+                id: 'math-m2',
+                number: 'MODULE II',
+                name: 'Signed, Unsigned, & Floating Point Representations',
+                syllabusPreview: 'Signed & unsigned integers, sign magnitude, 1\'s and 2\'s complement, overflow/underflow, IEEE 754 floating-point, rounding errors.',
+                contentDetails: 'Representation of Signed & Unsigned Integers, Range of Signed and Unsigned Integers, Sign Magnitude form, 1’s complement representation, 2’s complement representation, Conversions between representations, Comparison of Sign Magnitude, 1’s complement, 2’s complement methods, Overflow, Underflow, and Wrap Around. Floating Point Representation – Decimal to Binary Floating-point conversion, Normalization of Floating Point Numbers, IEEE 754 Structure for Floating-point Representation, Rounding Errors.'
+              },
+              {
+                id: 'math-m3',
+                number: 'MODULE III',
+                name: 'Modular Mathematics',
+                syllabusPreview: 'GCD and LCM, Euclidean Theorem, modulo arithmetic, multiplicative inverse, Extended Euclidean, Fermat\'s Little Theorem, error detection (CRC, checksum).',
+                contentDetails: 'GCD and LCM, Euclidean Theorem for GCD (Subtraction Method and Modulo Method), Relation between GCD and LCM, Modulo Arithmetic and Properties, Multiplicative Inverse, Extended Euclidean Algorithm (without proof), Fermat’s Little Theorem (without proof), Introduction to Applications in Computing: Simple Error Detection Techniques – Parity Bits, Checksum, Cyclic Redundancy Check (CRC).'
+              },
+              {
+                id: 'math-m4',
+                number: 'MODULE IV',
+                name: 'Basics of Logic and Proof Methods',
+                syllabusPreview: 'Propositional logic, logical equivalences, predicates & quantifiers, rules of inference, direct, indirect, vacuous, trivial, and case proofs.',
+                contentDetails: 'Propositional logic, Logical Equivalences, Predicates & quantifiers, Rules of Inference, Proof Methods: Direct Proof, Indirect Proof, Vacuous Proof, Trivial Proof, Proof by Cases.'
+              },
+              {
+                id: 'math-m5',
+                number: 'MODULE V',
+                name: 'More Proof Methods & Matrices',
+                syllabusPreview: 'Mathematical induction, strong induction, matrix operations, determinants via cofactor expansion, adjoint and inverse properties.',
+                contentDetails: 'Mathematical Induction, Strong Induction, Matrix Introduction – Matrix Addition and Multiplication and their Properties – Determinants: Cofactor Expansion Method – Properties of Determinants – Adjoint and Inverse of a Matrix – Properties of Adjoint and Inverse.'
+              },
+              {
+                id: 'math-m6',
+                number: 'MODULE VI',
+                name: 'Permutations & Combinations',
+                syllabusPreview: 'Principles of counting, permutations with/without repetition, circular permutations, AES encryption, combinations, selection problems.',
+                contentDetails: 'Basic Principles of Counting – Permutations: Arrangement with and Without Repetition, Circular Permutation – Applications in real-world scenarios: Scheduling tasks, Cryptography (AES Encryption) – Combinations: With and Without Replacement – Selection problems, Techniques, and Real-life examples.'
+              },
+              {
+                id: 'math-m7',
+                number: 'MODULE VII',
+                name: 'Sequences & Series',
+                syllabusPreview: 'Arithmetic, Geometric, and Harmonic Progression, AM-GM-HM relation, AGP series finite and infinite sum.',
+                contentDetails: 'Arithmetic Progression – Geometric Progression – Harmonic Progression – Relation between Arithmetic Mean, Geometric Mean, and Harmonic Mean – AGP Series (including nth term, sum of n terms in finite and infinite conditions).'
+              },
+              {
+                id: 'math-m8',
+                number: 'MODULE VIII',
+                name: 'Sets and Binary Operations',
+                syllabusPreview: 'Set theory fundamentals, operations, Venn diagrams, Cartesian products, function types (injective, surjective, bijective).',
+                contentDetails: 'Fundamentals of Set Theory – Set Operations: Union, Difference, Intersection, Complement – Venn Diagrams and Applications – Cartesian Products – Properties of Cartesian Products – Applications of Cartesian Products–Functions – Functions Terminology (Domain, Range, Codomain) – Types of Functions (Injective, Surjective, and Bijective).'
+              },
+              {
+                id: 'math-m9',
+                number: 'MODULE IX',
+                name: 'Relations',
+                syllabusPreview: 'Types of relations, equivalence relations, partial orders, Hasse diagrams, extremal elements, bounds, lattices.',
+                contentDetails: 'Relations – Types of Relations (Reflexive, Symmetric, Transitive, Antisymmetric, and Partial Order Relation), Equivalence Relations, Partial Order Relations, Totally Ordered sets, Hasse Diagrams, Maximal & Minimal elements, Greatest & Least elements, Lower & Upper bounds, Lattices.'
+              },
+              {
+                id: 'math-m10',
+                number: 'MODULE X',
+                name: 'Recursion and Recurrence Relations',
+                syllabusPreview: 'Recursive definitions, recursively defined functions and sets, recurrence relations, linear homogeneous recurrence relations.',
+                contentDetails: 'Recursive Definitions, Recursively defined functions, Recursively defined sets, Recurrence Relations, Linear Homogeneous Recurrence Relations.'
+              }
+            ]
+          },
+          {
+            id: 'eng-physics',
+            name: 'Engineering Physics',
+            code: 'PHYS-101',
+            category: 'Applied Physics & Hardware',
+            description: 'Modern physics principles: quantum mechanics, quantum computing, semiconductors, optoelectronics, magnetic data storage, ferroelectricity, EM wave imaging, and sensors.',
+            iconName: 'BrainCircuit',
+            yearId: 'year-1',
+            termId: 'term-1',
+            modules: [
+              {
+                id: 'phys-m1',
+                number: 'Module 1',
+                name: 'Fundamentals of Quantum Physics',
+                syllabusPreview: 'Planck’s theory, photoelectric effect, wave-particle duality, Schrödinger’s equation, particle in 1D potential box, quantum tunnelling.',
+                contentDetails: 'Planck’s theory, photoelectric effect, wave-particle duality, Schrödinger’s equation, Particle in 1 D potential box, Quantum tunnelling (Transmission and Reflection coefficients).'
+              },
+              {
+                id: 'phys-m2',
+                number: 'Module 2',
+                name: 'Introduction to Quantum Computing',
+                syllabusPreview: 'Foundation for quantum computing, Qubits, superposition, quantum entanglement, quantum gates, quantum circuits.',
+                contentDetails: 'Foundation for quantum computing, Qubits, Superposition, Quantum entanglement, Quantum gates, Quantum circuits.'
+              },
+              {
+                id: 'phys-m3',
+                number: 'Module 3',
+                name: 'Semiconductor Physics and Device Applications',
+                syllabusPreview: 'Energy bands in solids, intrinsic & extrinsic semiconductors, PN junction diodes, transistors operation & switching, CPUs, GPUs, SSDs.',
+                contentDetails: 'Energy bands in solids, intrinsic & extrinsic semiconductors, PN junction diodes, transistors (Qualitative)– operation and switching, Relevance in CPUs, GPUs, SSDs.'
+              },
+              {
+                id: 'phys-m4',
+                number: 'Module 4',
+                name: 'Optoelectronics and Display Technologies',
+                syllabusPreview: 'Light-matter interaction, LEDs, photodiodes, laser diodes, LCD, LED, OLED displays, optical sensors, monitors, communication hardware.',
+                contentDetails: 'Light-matter interaction, LEDs, photodiodes, laser diodes, Display technologies: LCD, LED, OLED, Applications - optical sensors, monitors, communication hardware.'
+              },
+              {
+                id: 'phys-m5',
+                number: 'Module 5',
+                name: 'Magnetism in Data Storage',
+                syllabusPreview: 'Magnetic materials classification, domain theory, hysteresis, soft and hard magnets, shielding, HDDs working, MRAM.',
+                contentDetails: 'Magnetic materials – classification, Domain theory, Hysteresis, Soft and Hard Magnetic materials, magnetic shielding, Magnetic domains in HDDs, Working of HDDs, MRAM.'
+              },
+              {
+                id: 'phys-m6',
+                number: 'Module 6',
+                name: 'Ferro Electricity and Memory Technologies',
+                syllabusPreview: 'Dielectric materials, ferroelectricity, charge storage in capacitors, ferroelectric transistors, memristors, dielectric tunnelling, FeRAM.',
+                contentDetails: 'Dielectric Materials, Ferroelectricity, Charge storage in capacitors, Ferro electric capacitors, Ferro electric transistors, Ferro electric Memristors, Dielectric tunnelling, Emerging memory: FeRAM.'
+              },
+              {
+                id: 'phys-m7',
+                number: 'Module 7',
+                name: 'Electromagnetic Waves and Light Interference in Imaging',
+                syllabusPreview: 'Light as an EM wave, superposition principle, interference, wave intensity, mathematical representation, digital sensors, image capture.',
+                contentDetails: 'Light as an Electromagnetic Wave, Principle of Superposition, and Interference, Wave Intensity and Mathematical Representation, Digital Sensors and Image Capture.'
+              },
+              {
+                id: 'phys-m8',
+                number: 'Module 8',
+                name: 'Matrix Representation in Optical Imaging',
+                syllabusPreview: 'Mathematical modelling of interference, intensity computation in matrix format, image as a matrix bridging physics and computing.',
+                contentDetails: 'Mathematical Modelling of Interference, Intensity Computation in a Matrix Format, Image as a Matrix: Bridging Physics and Computing, Interdisciplinary Applications.'
+              },
+              {
+                id: 'phys-m9',
+                number: 'Module 9',
+                name: 'Photonics and Fiber Optic Communication',
+                syllabusPreview: 'Total internal reflection, optical fibers, acceptance angle, numerical aperture, signal loss mechanisms, high-speed internet, cloud data transfer.',
+                contentDetails: 'Total internal reflection, optical fibers, acceptance angle, Numerical Aperture (Qualitative), Signal loss mechanisms: attenuation, dispersion, Fiber Optic Communication - Applications in high-speed internet and cloud data transfer.'
+              },
+              {
+                id: 'phys-m10',
+                number: 'Module 10',
+                name: 'Sensors and its Applications',
+                syllabusPreview: 'Sensor characteristics (sensitivity, precision, accuracy), principles of mechanical, optical, thermal sensors, robotics, IoT, smart systems.',
+                contentDetails: 'Sensors, Sensor characteristics: sensitivity, precision, accuracy, Principles of mechanical, optical, and thermal sensors, Applications in robotics, automation, IoT, and smart systems.'
+              }
+            ]
+          },
+          {
+            id: 'web-dev',
+            name: 'Fundamentals Of Web Development',
+            code: 'WEB-101',
+            category: 'Web Technologies & Frontend',
+            description: 'Comprehensive web development foundation: HTML5 semantic structure, CSS box model, Flexbox layout, Bootstrap utilities, CSS animations, CSS Grid, and Tailwind CSS.',
+            iconName: 'Database',
+            yearId: 'year-1',
+            termId: 'term-1',
+            modules: [
+              {
+                id: 'web-m1',
+                number: 'Module-I',
+                name: 'Introduction to Web Development & HTML Basics',
+                syllabusPreview: 'Web basics, role of web technologies, syntax, debugging, tweaking code, HTML structure, headings, paragraphs, buttons, CSS text styling.',
+                contentDetails: 'Web Basics: Importance of Web Development, Role of web technologies in modern applications. Fundamentals: Syntax, Debugging, and Tweaking Code, Getting Started with HTML and CSS. HTML Structure and Elements: Headings, Paragraphs, Container Elements, Button. CSS Text Styling: Text Alignment, CSS Colors with HeX Codes, Font Family, Font Size, Font Style, Font weight, Text Decoration.'
+              },
+              {
+                id: 'web-m2',
+                number: 'Module-II',
+                name: 'CSS Styling – Text, Background, and Box Properties',
+                syllabusPreview: 'CSS background (color, image, size), box model (height, width, border, padding), viewport, multiple class names, Bootstrap introduction.',
+                contentDetails: 'CSS Background: Background Color, Background Image, Background Size. CSS Box Model: Height, Width, Border Properties: Width, Radius, Color, Style, Padding. Viewport: Height, Width. CSS Rulesets & Frameworks: Applying Styles with HTML Attributes, Using Multiple Class Names, Introduction to Bootstrap, Predefined Styles.'
+              },
+              {
+                id: 'web-m3',
+                number: 'Module-III',
+                name: 'Building Layouts with Flexbox and Bootstrap',
+                syllabusPreview: 'Bootstrap Flexbox container, direction, justify content, images, void elements, margins, layout components, hyperlinks, lists, anchors.',
+                contentDetails: 'Bootstrap Flexbox Properties: Flexbox Container, Flex Direction, Justify Content. HTML Elements: Image (src), Void Elements, CSS Box Properties: Margin. Layout Development with Bootstrap: Bootstrap Components, Bootstrap Utilities, Display Utility. HTML Attributes: Id, onclick, href, target, Lists (Ordered and Unordered), Anchor, Horizontal Rule, Hyperlinks.'
+              },
+              {
+                id: 'web-m4',
+                number: 'Module-IV',
+                name: 'HTML5 Multimedia',
+                syllabusPreview: 'Hyperlinks, horizontal rules, audio, video elements, semantic elements (header, nav, article, section, footer).',
+                contentDetails: 'HTML Attributes: Anchor, Horizontal Rule, Hyperlinks. Multimedia Support: Audio, Video Elements, Semantic Elements (Header, Nav, Article, Section, Footer).'
+              },
+              {
+                id: 'web-m5',
+                number: 'Module-V',
+                name: 'Responsive Web Design',
+                syllabusPreview: 'Bootstrap grid, container, row, column, breakpoints, spacing, navbar, CSS selectors, specificity, inline styles, cascade.',
+                contentDetails: 'Bootstrap Grid: Container, Row, Column, Multi-column Layouts, Breakpoints, Column Wrapping. Utilities: Spacing, Background Color, Navbar. CSS Box Properties: Margin Variants, Auto Margin. CSS Selectors: Class, ID, Type, Pseudo-classes, Pseudo-elements, Combinators. CSS Styling: Specificity, Inline Styles, Cascade.'
+              },
+              {
+                id: 'web-m6',
+                number: 'Module-VI',
+                name: 'Bootstrap Containers',
+                syllabusPreview: 'Bootstrap sizing, icons, modal, buttons, cards, minimal CSS utilities (flex, position, shadow, colors).',
+                contentDetails: 'Bootstrap Utilities: Sizing, Icons. Bootstrap Components: Modal, Buttons, Cards. Minimal CSS Utilities: Flex, Position, Shadow, Colors.'
+              },
+              {
+                id: 'web-m7',
+                number: 'Module-VII',
+                name: 'CSS Animation & Responsive Design',
+                syllabusPreview: 'CSS gradients (linear, radial), transitions, transforms, keyframes, timing, animatable properties, 2D transforms.',
+                contentDetails: 'CSS Gradients: Linear, Radial. CSS Transitions & Animations: CSS Transforms, Properties & Values, Keyframes, Timing, Animatable and Non-Animatable Properties, Combining 2D Transform Functions.'
+              },
+              {
+                id: 'web-m8',
+                number: 'Module-VIII',
+                name: 'CSS Flexbox & Grid Layout',
+                syllabusPreview: 'Box sizing, overflow handling, flexbox layout properties, flex-wrap, align self, order, media queries, responsive design.',
+                contentDetails: 'Box Sizing & Overflow: Sizing elements, Min/Max Sizes, Handling Overflow, Box sizing properties. Flexbox & Media Queries: Flexbox layout properties, Flex-wrap, Align Self, Order, Responsive Design, Multiple Media Features.'
+              },
+              {
+                id: 'web-m9',
+                number: 'Module-IX',
+                name: 'Flexbox Sizing and CSS Grid',
+                syllabusPreview: 'Flex grow, flex shrink, flex basis, CSS grid lines, cells, tracks, areas, grid gap, fraction units, template rows & columns.',
+                contentDetails: 'Flexbox Sizing: Flex Grow, Flex Shrink, Flex Basis. CSS Grid Basics: Grid Types, Grid Line, Cell, Track, Area, Grid Gap, Fraction unit, Template Rows & Columns.'
+              },
+              {
+                id: 'web-m10',
+                number: 'Module-X',
+                name: 'CSS Positioning and Tailwind CSS',
+                syllabusPreview: 'Responsive grid layout, CSS positioning basics, display, gap, fractional units, combining Flexbox + Grid, Tailwind CSS setup, utility classes.',
+                contentDetails: 'Responsive Grid Layout: CSS Positioning Basics, Grid Properties: Display, Gap, Fractional Units, Repeat, Combining Flexbox + Grid for responsive layouts. Tailwind CSS: Setup, Grid Utility Classes, Responsive Utility Classes.'
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    id: 'ai-fundamentals',
-    name: 'Fundamentals of Artificial Intelligence',
-    code: 'CS-401',
-    category: 'Computer Science & AI',
-    description: 'Core concepts of AI agents, search algorithms, logic inference, game theory, uncertain reasoning, and machine learning models.',
-    iconName: 'BrainCircuit',
-    modules: [
+    id: 'year-2',
+    name: '2nd Year',
+    badge: 'Term 2 (Upcoming)',
+    terms: [
       {
-        id: 'ai-m1',
-        number: 'Module I',
-        name: 'Introduction to Artificial Intelligence',
-        syllabusPreview: 'AI definition, industry applications, intelligent agents, AI ethics, societal impact, AI subfields.',
-        contentDetails: 'Definition AI, AI applications in various industries, Intelligent Agents and their types, AI Ethics and societal impact, different types of AI, subfields of AI, recent advancements in AI.'
-      },
-      {
-        id: 'ai-m2',
-        number: 'Module II',
-        name: 'Uninformed Search Strategies',
-        syllabusPreview: 'State space search, Uniform Cost Search, Depth Limited Search, Iterative Deepening DFS, blind search.',
-        contentDetails: 'State space search, uninformed search methods, Uniform Cost Search, Depth Limited Search, Iterative Deepening Depth-First Search, Blind Search Algorithm.'
-      },
-      {
-        id: 'ai-m3',
-        number: 'Module III',
-        name: 'Informed Search Strategies',
-        syllabusPreview: 'Best-First Search, A* Search, Hill-Climbing, Beam Search, heuristic evaluation functions.',
-        contentDetails: 'Best First Search, A* Search, Hill-climbing search, Beam Search.'
-      },
-      {
-        id: 'ai-m4',
-        number: 'Module IV',
-        name: 'Optimal Decisions in Games',
-        syllabusPreview: 'Alpha-Beta Pruning, Constraint Satisfaction Problems (CSPs), backtracking, Monte Carlo Tree Search.',
-        contentDetails: 'Perfect decisions, imperfect decisions, Alpha-Beta Pruning, defining Constraint Satisfaction Problems, constraint propagation, backtracking search for CSPs, Monte Carlo Tree Search, and games for search problems.'
-      },
-      {
-        id: 'ai-m5',
-        number: 'Module V',
-        name: 'Inferences',
-        syllabusPreview: 'Propositional & First Order Logic, Unification, Forward & Backward Chaining, Resolution.',
-        contentDetails: 'Introduction to Logic and Reasoning, Propositional Logic, First Order Logic, inference in First Order Logic, Unification, Forward Chaining, Backward Chaining, Resolution.'
-      },
-      {
-        id: 'ai-m6',
-        number: 'Module VI',
-        name: 'Knowledge Representation & Reasoning',
-        syllabusPreview: 'Knowledge-Based Agents, Wumpus World, Ontological Engineering, Categories & Objects, Frames.',
-        contentDetails: 'A Knowledge-Based Agent, The Wumpus World, Environment, Semantics, Frames, Ontological Engineering, Categories and Objects, Events, case studies of knowledge-based systems.'
-      },
-      {
-        id: 'ai-m7',
-        number: 'Module VII',
-        name: 'State Space Planning',
-        syllabusPreview: 'Planning agents, state space search algorithms, Planning Graphs, Partial Order & Hierarchical Planning.',
-        contentDetails: 'A Simple Planning Agent, from problem-solving to Planning, algorithms for planning with State Space, Search, Planning, Graphs, basic representation of plans, partial order planning, and hierarchical planning.'
-      },
-      {
-        id: 'ai-m8',
-        number: 'Module VIII',
-        name: 'Uncertainty in AI',
-        syllabusPreview: 'Uncertain domains, Bayesian Networks semantics, conditional distributions, approximate inference.',
-        contentDetails: 'Representing knowledge in an uncertain domain, the semantics of Bayesian Networks, efficient representation of conditional distributions, approximate inference in Bayesian Networks, applications of uncertainty.'
-      },
-      {
-        id: 'ai-m9',
-        number: 'Module IX',
-        name: 'General Model of Learning Agents',
-        syllabusPreview: 'Inductive learning, Decision Trees, Information Theory, statistical learning, Reinforcement Learning.',
-        contentDetails: 'Inductive Learning, Learning Decision Trees, Using Information Theory, Statistical Learning with complete data, hidden variables, instance-based learning, introduction to reinforcement learning.'
-      },
-      {
-        id: 'ai-m10',
-        number: 'Module X',
-        name: 'Applications of AI',
-        syllabusPreview: 'Real-world case studies in Healthcare, Finance, Agriculture, and Governance.',
-        contentDetails: 'Case studies of AI in Healthcare, AI in Finance, AI in Agriculture, AI in Governance.'
-      }
-    ]
-  },
-  {
-    id: 'dsa-cpp',
-    name: 'Data Structures Using C++',
-    code: 'CS-202',
-    category: 'Software Engineering',
-    description: 'Fundamental data structures, time/space complexity analysis, memory management, and Standard Template Library (STL) in C++.',
-    iconName: 'Code2',
-    modules: [
-      {
-        id: 'dsa-m1',
-        number: 'Module I',
-        name: 'Introduction to C++ Programming',
-        syllabusPreview: 'C++ evolution, program structure, tokens, keywords, variables, data types, I/O streams, type conversion.',
-        contentDetails: 'Evolution of C++, features of C++, structure of a C++ program, tokens, keywords, identifiers, variables, constants, data types, operators, input and output streams, type conversion.'
-      },
-      {
-        id: 'dsa-m2',
-        number: 'Module II',
-        name: 'Control Statements',
-        syllabusPreview: 'Decision making statements (if-else, switch), looping statements (for, while, do-while), function design.',
-        contentDetails: 'Decision making statements, looping statements, functions.'
-      },
-      {
-        id: 'dsa-m3',
-        number: 'Module III',
-        name: 'Arrays – 1D',
-        syllabusPreview: 'One-dimensional arrays, declaration, initialization, array passing to functions, array operations.',
-        contentDetails: 'One-dimensional numeric arrays, array declaration and initialization, passing arrays to functions, operations on single dimensional arrays.'
-      },
-      {
-        id: 'dsa-m4',
-        number: 'Module IV',
-        name: 'Arrays – 2D',
-        syllabusPreview: 'Two-dimensional numeric arrays, matrix manipulation, row-column operations.',
-        contentDetails: 'Two-dimensional numeric arrays, matrix operations, operations on two-dimensional arrays.'
-      },
-      {
-        id: 'dsa-m5',
-        number: 'Module V',
-        name: 'String Arrays',
-        syllabusPreview: 'String representations, built-in methods, character frequency, string reversal, pattern matching.',
-        contentDetails: 'String representation and built-in methods, character frequency and comparison techniques, string traversal and reversal, word-level manipulation and tokenization, character mapping and pattern matching.'
-      },
-      {
-        id: 'dsa-m6',
-        number: 'Module VI',
-        name: 'Structures',
-        syllabusPreview: 'Structure declaration, member access, array of structures, nested structures, passing structs to functions.',
-        contentDetails: 'Introduction and need for structures, structure declaration and initialization, accessing members, arrays of structures, nested structures, and structures with functions.'
-      },
-      {
-        id: 'dsa-m7',
-        number: 'Module VII',
-        name: 'Data Structures Performance Analysis',
-        syllabusPreview: 'Abstract Data Types (ADTs), Time Complexity, Space Complexity, Asymptotic Notations (Big-O, Big-Omega, Big-Theta).',
-        contentDetails: 'Introduction to data structures, types of data structures, characteristics of algorithms, Abstract Data Types, Time Complexity, Space Complexity, Asymptotic Notations.'
-      },
-      {
-        id: 'dsa-m8',
-        number: 'Module VIII',
-        name: 'Stacks',
-        syllabusPreview: 'Stack ADT, push/pop operations, array implementation of stacks, stack applications (infix/postfix, recursion).',
-        contentDetails: 'Stack ADT, stack operations, stack implementation using arrays, applications of stacks.'
-      },
-      {
-        id: 'dsa-m9',
-        number: 'Module IX',
-        name: 'Queues',
-        syllabusPreview: 'Queue ADT, enqueue/dequeue operations, array implementation, circular queues, queue applications.',
-        contentDetails: 'Queue ADT, queue operations, queue implementation using arrays, types and applications of queues.'
-      },
-      {
-        id: 'dsa-m10',
-        number: 'Module X',
-        name: 'STL Fundamentals & Containers',
-        syllabusPreview: 'Pairs, vectors, dynamic resizing, iterators, deque, stack, queue, sets, maps in C++ STL.',
-        contentDetails: 'Pairs and vectors with dynamic resizing and indexing, iterators and built-in utility functions, deque, stack, and queue operations, sets and maps.'
-      }
-    ]
-  },
-  {
-    id: 'adv-dbms',
-    name: 'Advanced Database Management Systems',
-    code: 'CS-405',
-    category: 'Database Systems',
-    description: 'Relational query optimization, normalization, ACID transactions, concurrency control, NoSQL architectures, and MongoDB.',
-    iconName: 'Database',
-    modules: [
-      {
-        id: 'dbms-m1',
-        number: 'Module 1',
-        name: 'Relational Query Languages & Extended ER Models',
-        syllabusPreview: 'Relational algebra (Selection, Projection, Joins), ER diagrams, subclasses, generalization, aggregation.',
-        contentDetails: 'Introduction to relational query languages and relational algebra operations such as Selection, Projection, Union, Composition, and Cartesian Product. Entity Relationship (ER) modeling, ER diagrams, naming conventions, subclasses, superclasses, inheritance, specialization, generalization, aggregation, and modeling of union types using categories.'
-      },
-      {
-        id: 'dbms-m2',
-        number: 'Module 2',
-        name: 'Fundamentals of Normalization',
-        syllabusPreview: 'Schema refinement, functional dependencies, First Normal Form (1NF), Second Normal Form (2NF).',
-        contentDetails: 'Schema refinement techniques to improve database design by eliminating redundancy and anomalies. Functional dependencies, types of functional dependencies, and normalization concepts with First Normal Form (1NF) and Second Normal Form (2NF).'
-      },
-      {
-        id: 'dbms-m3',
-        number: 'Module 3',
-        name: 'Advanced Normalization',
-        syllabusPreview: '3NF, BCNF, 4NF, 5NF, functional dependency analysis, lossy/lossless decomposition, denormalization.',
-        contentDetails: 'Advanced normalization techniques including Third Normal Form (3NF), Boyce-Codd Normal Form (BCNF), Fourth Normal Form (4NF), and Fifth Normal Form (5NF). Functional dependency analysis, decomposition techniques, and denormalization for performance optimization.'
-      },
-      {
-        id: 'dbms-m4',
-        number: 'Module 4',
-        name: 'Transactions in DBMS',
-        syllabusPreview: 'ACID properties, transaction life cycle, transaction states, schedules, multi-user concurrency control.',
-        contentDetails: 'Introduction to database transactions, transaction management, and ACID properties to ensure reliable data processing. Transaction life cycle, transaction states, scheduling concepts, and the need for concurrency control in multi-user environments.'
-      },
-      {
-        id: 'dbms-m5',
-        number: 'Module 5',
-        name: 'Concurrency Control',
-        syllabusPreview: 'Locking mechanisms (shared/exclusive), timestamp ordering, serializability, deadlock handling.',
-        contentDetails: 'Concurrency control mechanisms for maintaining database consistency during simultaneous transactions. Locking techniques including shared and exclusive locks, timestamp-based protocols, serializability concepts, and deadlock handling methods.'
-      },
-      {
-        id: 'dbms-m6',
-        number: 'Module 6',
-        name: 'Storage and File Structure',
-        syllabusPreview: 'Database storage architecture, RAID levels, file organization methods, record indexing, data dictionary.',
-        contentDetails: 'Database storage architecture, RAID technology, and file organization methods for efficient data storage and retrieval. Organization of records in files, storage structures, and management of metadata through the data dictionary.'
-      },
-      {
-        id: 'dbms-m7',
-        number: 'Module 7',
-        name: 'Database Recovery Techniques',
-        syllabusPreview: 'Log-based recovery, shadow paging, transaction undo/redo, database backup strategies, disaster recovery.',
-        contentDetails: 'Recovery mechanisms to restore databases after transaction, system, or media failures. Recovery concepts, shadow paging, log-based recovery, database backup strategies, and recovery from catastrophic failures.'
-      },
-      {
-        id: 'dbms-m8',
-        number: 'Module 8',
-        name: 'Introduction to NoSQL Databases and MongoDB',
-        syllabusPreview: 'NoSQL vs Relational databases, MongoDB architecture, document collections, Atlas & Compass setup.',
-        contentDetails: 'Overview of NoSQL databases, their characteristics, and comparison with relational databases. Introduction to MongoDB architecture, advantages, types of NoSQL databases, installation, and environment setup using MongoDB Atlas and Compass.'
-      },
-      {
-        id: 'dbms-m9',
-        number: 'Module 9',
-        name: 'Performing CRUD Operations in MongoDB',
-        syllabusPreview: 'Connecting to MongoDB Atlas, document CRUD operations, query filtering, importing/exporting data.',
-        contentDetails: 'Connecting to MongoDB Atlas and performing Create, Read, Update, and Delete (CRUD) operations on collections and documents. Managing databases using MongoDB commands, filtering records, and importing/exporting data.'
-      },
-      {
-        id: 'dbms-m10',
-        number: 'Module 10',
-        name: 'Advanced Querying and Data Aggregation in MongoDB',
-        syllabusPreview: 'Conditional & logical operators, sorting, aggregation pipeline ($match, $group), embedded arrays.',
-        contentDetails: 'Advanced querying using conditional, comparison, and logical operators for efficient data retrieval. Sorting, limiting results, aggregation framework, grouping operations, and handling complex data types such as embedded documents and arrays.'
+        id: 'term-2',
+        name: 'Term 2',
+        yearId: 'year-2',
+        description: 'Second year Term 2 syllabus. Previous subjects have been removed as requested; upcoming syllabus will be added upon commencement of Term 2.',
+        isAvailable: false,
+        statusBadge: 'Upcoming • Syllabus Pending',
+        subjects: [] // Cleared as requested: Term 2 syllabus will be added after starting of Term 2
       }
     ]
   }
 ];
+
+// Flat list of all currently active subjects
+export const SUBJECTS: Subject[] = ACADEMIC_YEARS.flatMap(y => y.terms.flatMap(t => t.subjects));
+
+export function getSubjectsByYearAndTerm(yearId: string, termId: string): Subject[] {
+  const year = ACADEMIC_YEARS.find(y => y.id === yearId);
+  if (!year) return [];
+  const term = year.terms.find(t => t.id === termId);
+  return term ? term.subjects : [];
+}
+
+export function getTermById(yearId: string, termId: string) {
+  const year = ACADEMIC_YEARS.find(y => y.id === yearId);
+  return year?.terms.find(t => t.id === termId);
+}
 
 export function getSubjectById(id: string): Subject | undefined {
   return SUBJECTS.find(s => s.id === id);

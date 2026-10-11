@@ -1,5 +1,11 @@
-import { useState, useCallback, useEffect } from 'react';
-import { SUBJECTS, getSubjectById, getModuleById } from '../data/syllabus';
+import { useState, useCallback, useEffect, useMemo } from 'react';
+import {
+  ACADEMIC_YEARS,
+  getSubjectsByYearAndTerm,
+  getSubjectById,
+  getModuleById,
+  getTermById,
+} from '../data/syllabus';
 import type { GeneratedJournal } from '../types/syllabus';
 import { getAIProvider } from '../lib/aiProvider';
 import { copyToClipboard, formatFullJournal } from '../lib/clipboard';
@@ -14,7 +20,9 @@ export const GENERATION_STEPS = [
 ];
 
 export function useJournalGenerator() {
-  const [selectedSubjectId, setSelectedSubjectId] = useState<string>('');
+  const [selectedYearId, setSelectedYearId] = useState<string>('year-1');
+  const [selectedTermId, setSelectedTermId] = useState<string>('term-1');
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string>('python-prog');
   const [selectedModuleId, setSelectedModuleId] = useState<string>('');
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
@@ -30,10 +38,23 @@ export function useJournalGenerator() {
   const [error, setError] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  // Save history to localStorage
+  // Active subjects filtered by Year & Term
+  const availableSubjects = useMemo(() => {
+    return getSubjectsByYearAndTerm(selectedYearId, selectedTermId);
+  }, [selectedYearId, selectedTermId]);
+
+  const currentYearObj = useMemo(() => {
+    return ACADEMIC_YEARS.find(y => y.id === selectedYearId);
+  }, [selectedYearId]);
+
+  const currentTermObj = useMemo(() => {
+    return getTermById(selectedYearId, selectedTermId);
+  }, [selectedYearId, selectedTermId]);
+
+  // Persist history to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('reflectai-history', JSON.stringify(generationHistory.slice(0, 20)));
+      localStorage.setItem('reflectai-history', JSON.stringify(generationHistory.slice(0, 30)));
     } catch (err) {
       console.error('Failed to persist history:', err);
     }
@@ -45,6 +66,26 @@ export function useJournalGenerator() {
       setToastMessage(prev => (prev === msg ? null : prev));
     }, 3000);
   }, []);
+
+  const selectYear = useCallback((yearId: string) => {
+    setSelectedYearId(yearId);
+    const targetYear = ACADEMIC_YEARS.find(y => y.id === yearId);
+    const firstTermId = targetYear?.terms[0]?.id || (yearId === 'year-2' ? 'term-2' : 'term-1');
+    setSelectedTermId(firstTermId);
+
+    const termSubjects = getSubjectsByYearAndTerm(yearId, firstTermId);
+    setSelectedSubjectId(termSubjects.length > 0 ? termSubjects[0].id : '');
+    setSelectedModuleId('');
+    setError(null);
+  }, []);
+
+  const selectTerm = useCallback((termId: string) => {
+    setSelectedTermId(termId);
+    const termSubjects = getSubjectsByYearAndTerm(selectedYearId, termId);
+    setSelectedSubjectId(termSubjects.length > 0 ? termSubjects[0].id : '');
+    setSelectedModuleId('');
+    setError(null);
+  }, [selectedYearId]);
 
   const selectSubject = useCallback((subjectId: string) => {
     setSelectedSubjectId(subjectId);
@@ -59,7 +100,7 @@ export function useJournalGenerator() {
 
   const handleGenerate = useCallback(async () => {
     if (!selectedSubjectId) {
-      setError('Please select a subject first.');
+      setError('Please select an active subject first.');
       return;
     }
     if (!selectedModuleId) {
@@ -85,7 +126,7 @@ export function useJournalGenerator() {
         if (prev < GENERATION_STEPS.length - 1) return prev + 1;
         return prev;
       });
-    }, 600);
+    }, 450);
 
     try {
       const provider = getAIProvider();
@@ -95,17 +136,17 @@ export function useJournalGenerator() {
       setCurrentStepIndex(GENERATION_STEPS.length - 1);
 
       // Brief delay for visual transition smoothness
-      await new Promise(r => setTimeout(r, 400));
+      await new Promise(r => setTimeout(r, 300));
 
       setCurrentJournal(journalResult);
       setGenerationHistory(prev => [journalResult, ...prev]);
       setIsGenerating(false);
-      showToast('Journal generated successfully!');
+      showToast('Unique journal reflection generated!');
 
-      // Gentle celebratory micro-interaction
+      // Celebratory micro-interaction
       try {
         confetti({
-          particleCount: 25,
+          particleCount: 30,
           spread: 60,
           origin: { y: 0.7 }
         });
@@ -115,7 +156,7 @@ export function useJournalGenerator() {
     } catch (err: any) {
       clearInterval(stepInterval);
       setIsGenerating(false);
-      setError('We couldn\'t generate your journal right now. Please try again.');
+      setError('Could not generate reflection right now. Please try again.');
       console.error('Generation error:', err);
     }
   }, [selectedSubjectId, selectedModuleId, generationHistory, showToast]);
@@ -139,9 +180,9 @@ export function useJournalGenerator() {
     const formatted = formatFullJournal(currentJournal);
     const success = await copyToClipboard(formatted);
     if (success) {
-      showToast('Full journal copied to clipboard!');
+      showToast('Full 5-section journal copied!');
       try {
-        confetti({ particleCount: 40, spread: 70, origin: { y: 0.8 } });
+        confetti({ particleCount: 45, spread: 75, origin: { y: 0.8 } });
       } catch {}
     } else {
       showToast('Failed to copy full journal');
@@ -152,7 +193,12 @@ export function useJournalGenerator() {
   const currentModuleObj = selectedSubjectId ? getModuleById(selectedSubjectId, selectedModuleId) : undefined;
 
   return {
-    subjects: SUBJECTS,
+    academicYears: ACADEMIC_YEARS,
+    selectedYearId,
+    selectedTermId,
+    currentYearObj,
+    currentTermObj,
+    subjects: availableSubjects,
     selectedSubjectId,
     selectedModuleId,
     currentSubjectObj,
@@ -162,6 +208,8 @@ export function useJournalGenerator() {
     currentJournal,
     error,
     toastMessage,
+    selectYear,
+    selectTerm,
     selectSubject,
     selectModule,
     handleGenerate,

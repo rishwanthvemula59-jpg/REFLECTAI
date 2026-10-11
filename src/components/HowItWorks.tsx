@@ -6,7 +6,7 @@ export const HowItWorks: React.FC = () => {
     {
       number: '01',
       title: 'Choose Subject',
-      description: 'Pick one of your enrolled courses from Probability & Stats, AI, C++ Data Structures, or Advanced DBMS.',
+      description: 'Pick one of your enrolled courses: Python Programming, Math for CS, Engineering Physics, or Web Development.',
       icon: <BookOpen className="w-6 h-6 text-violet-600" />,
     },
     {

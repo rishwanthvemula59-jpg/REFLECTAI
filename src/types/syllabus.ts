@@ -13,7 +13,26 @@ export interface Subject {
   category: string;
   description: string;
   iconName: string;
+  yearId?: string;
+  termId?: string;
   modules: Module[];
+}
+
+export interface AcademicTerm {
+  id: string;
+  name: string;
+  yearId: string;
+  description: string;
+  isAvailable: boolean;
+  statusBadge: string;
+  subjects: Subject[];
+}
+
+export interface AcademicYear {
+  id: string;
+  name: string;
+  badge: string;
+  terms: AcademicTerm[];
 }
 
 export type JournalSectionKey = 'experience' | 'feelings' | 'keyInsights' | 'applications' | 'conclusion';
@@ -42,6 +61,7 @@ export interface GeneratedJournal {
     conclusion: string;
   };
   timestamp: number;
+  contentHash?: string;
 }
 
 export interface VariationPerspective {
