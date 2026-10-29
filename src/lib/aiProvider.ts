@@ -59,16 +59,17 @@ function hashFullJournal(journal: JournalOutput): string {
  */
 function extractConcepts(module: Module): string[] {
   const rawSegments = (module.contentDetails + ' ' + module.syllabusPreview)
-    .replace(/(Module\s+[\w\d]+:|MODULE\s+[\w\d]+:)/gi, '')
+    .replace(/(Module\s*[-–—:]*\s*[\w\d]+:?|MODULE\s*[-–—:]*\s*[\w\d]+:?)/gi, '')
     .split(/[,.;:–—\n•]/)
     .map(s => s.trim())
-    .map(s => s.replace(/^\(?(e\.g\.|including|such as|like|types of|introduction to)\s*/i, ''))
+    .map(s => s.replace(/^[-–—:\s'"]+|[-–—:\s'"]+$/g, ''))
+    .map(s => s.replace(/^\(?(e\.g\.|including|such as|like|types of|introduction to|overview of)\s*/i, ''))
     .map(s => s.replace(/[()]/g, '').trim())
-    .filter(s => s.length >= 3 && s.length <= 55 && !/^(and|or|with|the|in|for|of|to|is)$/i.test(s));
+    .filter(s => s.length >= 3 && s.length <= 60 && !/^(and|or|with|the|in|for|of|to|is|vs)$/i.test(s));
 
   const unique = Array.from(new Set(rawSegments));
   if (unique.length < 5) {
-    unique.push(module.name, `${module.name} fundamentals`, 'procedural operations', 'theoretical models', 'system implementation');
+    unique.push(module.name, `${module.name} principles`, `${module.name} methodologies`, 'computational mechanics', 'system implementation');
   }
   return unique;
 }

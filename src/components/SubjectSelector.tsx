@@ -160,9 +160,9 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         </div>
       </div>
 
-      {/* MAIN CONTENT AREA: SUBJECT LIST OR EMPTY 2ND YEAR TERM 2 NOTIFICATION */}
-      {selectedYearId === 'year-2' || subjects.length === 0 ? (
-        /* 2ND YEAR TERM 2 PENDING NOTIFICATION CARD */
+      {/* MAIN CONTENT AREA: SUBJECT LIST OR EMPTY TERM NOTIFICATION */}
+      {subjects.length === 0 ? (
+        /* PENDING / EMPTY NOTIFICATION CARD */
         <div className="mt-4 p-8 rounded-2xl bg-gradient-to-br from-amber-50/60 via-slate-50 to-indigo-50/40 border border-amber-200/80 text-center relative overflow-hidden">
           <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto mb-4 shadow-sm">
             <CalendarClock className="w-7 h-7" />
@@ -170,20 +170,23 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 text-amber-800 text-xs font-bold uppercase tracking-wide mb-3">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>2nd Year • Term 2 (Upcoming)</span>
+            <span>{activeYear?.name} • {activeTerm?.name} (Upcoming)</span>
           </div>
 
           <h3 className="text-xl font-extrabold text-slate-900 mb-2">
-            Term 2 Syllabus Will Be Added Soon
+            Syllabus Coming Soon
           </h3>
 
           <p className="text-sm text-slate-600 max-w-lg mx-auto leading-relaxed mb-6">
-            All previous subjects have been cleared. Term 2 subjects and syllabus will be added right after the commencement of Term 2.
+            Course subjects and modules for this term are currently being prepared.
           </p>
 
           <button
             type="button"
-            onClick={() => onSelectYear('year-1')}
+            onClick={() => {
+              onSelectYear('year-1');
+              onSelectTerm('term-1');
+            }}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 text-white text-xs font-bold hover:bg-violet-700 transition-all shadow-md shadow-violet-500/20 group"
           >
             <span>Switch to 1st Year (Term 1) to generate journals</span>
@@ -191,7 +194,7 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
           </button>
         </div>
       ) : (
-        /* 1ST YEAR TERM 1 SUBJECT SELECTION */
+        /* COURSE SUBJECT SELECTION */
         <div>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
             <div>

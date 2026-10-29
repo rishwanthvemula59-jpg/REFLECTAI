@@ -120,13 +120,13 @@ export function useJournalGenerator() {
     setError(null);
     setCurrentStepIndex(0);
 
-    // Animate generation progress steps
+    // Animate generation progress steps quickly and smoothly
     const stepInterval = setInterval(() => {
       setCurrentStepIndex(prev => {
         if (prev < GENERATION_STEPS.length - 1) return prev + 1;
         return prev;
       });
-    }, 450);
+    }, 80);
 
     try {
       const provider = getAIProvider();
@@ -135,8 +135,8 @@ export function useJournalGenerator() {
       clearInterval(stepInterval);
       setCurrentStepIndex(GENERATION_STEPS.length - 1);
 
-      // Brief delay for visual transition smoothness
-      await new Promise(r => setTimeout(r, 300));
+      // Snappy delay for visual transition smoothness
+      await new Promise(r => setTimeout(r, 100));
 
       setCurrentJournal(journalResult);
       setGenerationHistory(prev => [journalResult, ...prev]);
